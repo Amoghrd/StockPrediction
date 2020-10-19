@@ -8,9 +8,9 @@
 
 ## Video
 
-Below is the video which describes our project's idea and implementation
+Below is the video which describes our project's idea
 
-[![Stock Market Predictions using Machine Learning](http://i3.ytimg.com/vi/3YbNEt3dYtc/hqdefault.jpg)](https://www.youtube.com/watch?v=3YbNEt3dYtc)
+[![Stock Market Predictions using Machine Learning](https://github.com/lokesh45/StockPrediction/blob/master/Video.png)](https://www.youtube.com/watch?v=Tr1WOP6sNSQ)
 
 ## Why choose this project:
 
