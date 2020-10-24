@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-[![Build Status](https://travis-ci.com/ianyehwork/CSC510_Project1.svg?branch=master)](https://travis-ci.com/ianyehwork/CSC510_Project1)
+[![Build Status](https://travis-ci.org/lokesh45/StockPrediction.svg?branch=master)](https://travis-ci.org/lokesh45/StockPrediction)
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4042066.svg)](https://doi.org/10.5281/zenodo.4042066)
 
