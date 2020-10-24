@@ -4,7 +4,7 @@
 
 [![Build Status](https://travis-ci.org/lokesh45/StockPrediction.svg?branch=master)](https://travis-ci.org/lokesh45/StockPrediction)
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.4042066.svg)](https://doi.org/10.5281/zenodo.4042066)
+[![DOI](https://zenodo.org/badge/301582156.svg)](https://zenodo.org/badge/latestdoi/301582156)
 
 ## Video
 
