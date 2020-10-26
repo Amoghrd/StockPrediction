@@ -7,6 +7,8 @@ from werkzeug.security import check_password_hash, generate_password_hash
 
 from flaskr.db import get_db
 
+import click
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 
@@ -16,22 +18,24 @@ def register():
         username = request.form['username']
         password = request.form['password']
         db = get_db()
+        cursor = db.cursor()
         error = None
+        check_user_sql = "SELECT * FROM user where username = %s"
+        user = (username, )
+        cursor.execute(check_user_sql, user)
+        user = cursor.fetchone()
 
         if not username:
             error = 'Username is required.'
         elif not password:
             error = 'Password is required.'
-        elif db.execute(
-            'SELECT username FROM user WHERE username = ?', (username,)
-        ).fetchone() is not None:
+        elif user is not None:
             error = 'User {} is already registered.'.format(username)
 
         if error is None:
-            db.execute(
-                'INSERT INTO user (username, password) VALUES (?, ?)',
-                (username, generate_password_hash(password))
-            )
+            sql = "INSERT INTO user(username, password) VALUES(%s,%s)"
+            data = (username, generate_password_hash(password))
+            cursor.execute(sql,data)
             db.commit()
             return redirect(url_for('auth.login'))
 
@@ -46,20 +50,24 @@ def login():
         username = request.form['username']
         password = request.form['password']
         db = get_db()
+        cursor = db.cursor()
         error = None
-        user = db.execute(
-            'SELECT * FROM user WHERE username = ?', (username,)
-        ).fetchone()
+        sql = "SELECT * FROM user where username = %s"
+        user = (username, )
+        cursor.execute(sql, user)
+        user = cursor.fetchone()
 
         if user is None:
             error = 'Incorrect username.'
             #calling check_password_hash function
-        elif not check_password_hash(user['password'], password):
+        elif not check_password_hash(user[1], password):
+            click.echo(user[0])
+            click.echo(user[1])
             error = 'Incorrect password.'
 
         if error is None:
             session.clear()
-            session['username'] = user['username']
+            session['username'] = user[0]
             return redirect(url_for('stock.index'))
 
         flash(error)
@@ -80,10 +88,12 @@ def load_logged_in_user():
     if username is None:
         g.user = None
     else:
-        g.user = get_db().execute(
-            'SELECT * FROM user WHERE username = ?', (username,)
-        ).fetchone()
-
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute(
+            'SELECT * FROM user WHERE username = %s', (username,)
+        )
+        g.user = cursor.fetchone()
 
 def login_required(view):
     @functools.wraps(view)
