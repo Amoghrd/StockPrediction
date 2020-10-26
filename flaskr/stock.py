@@ -12,6 +12,8 @@ from datetime import date
 from flaskr.fetch_data import get_stock
 from flaskr.fetch_data import regression
 
+contains = set()
+
 bp = Blueprint('stock', __name__)
 
 
@@ -77,12 +79,16 @@ def choose():
                 # The API which gets data from internet does not take company name for getting data, but rather ticker for the company
                 # For example Amazon has ticker AMZN, Apple AAPL, so gather a list from internet which gives you this conversion
                 # Then u need to store those into stock_id column of stock table corresponding to each company
-                cursor.execute('INSERT INTO user_stock (stock_id,username)'
+                if (stock_id,session.get('username')) in contains:
+                    db.commit()
+                else:
+                    contains.add((stock_id,session.get('username')))
+                    cursor.execute('INSERT INTO user_stock (stock_id,username)'
                            ' VALUES (%s,%s)',
                            (stock_id[0],session.get('username')))
                 # Currently I am just storing AMZN only to represent, you can modify it back to previous way after you are able to get
                 # correct tickers
-                db.commit()
+                    db.commit()
 
             except Exception as e:
                 print(e)
