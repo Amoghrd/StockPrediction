@@ -15,6 +15,8 @@ from datetime import date
 from flaskr.fetch_data import get_stock
 from flaskr.fetch_data import regression
 
+contains = set()
+
 bp = Blueprint("stock", __name__)
 
 
@@ -47,14 +49,14 @@ def index():
                         "INSERT INTO stock (stock_name,stock_id) VALUES(%s,%s)",
                         (row[1], row[0]),
                     )
-                    cursor.commit()
+                    db.commit()
                 except Exception as e:
                     print(e)
     posts = get_post()
     info_stocks = []
     for item in posts:
         print("xxxx" + item[0])
-        df = get_stock(item[0], 125)
+        df = get_stock(item[0], 250)
         # calling linear regression functiom
         regression(df, item[0], date.today().strftime("%d-%m-%Y"))
         info_stocks.append(
@@ -92,13 +94,18 @@ def choose():
                 # internet which gives you this conversion.
                 # Then u need to store those into stock_id column of stock table
                 # corresponding to each company.
-                cursor.execute(
-                    "INSERT INTO user_stock (stock_id,username)" " VALUES (%s,%s)",
-                    (stock_id[0], session.get("username")),
-                )
-                # Currently I am just storing AMZN only to represent, you can modify it
-                # back to previous way after you are able to get correct tickers.
-                db.commit()
+                if (stock_id, session.get("username")) in contains:
+                    db.commit()
+                else:
+                    contains.add((stock_id, session.get("username")))
+                    cursor.execute(
+                        "INSERT INTO user_stock (stock_id,username)" " VALUES (%s,%s)",
+                        (stock_id[0], session.get("username")),
+                    )
+                    # Currently I am just storing AMZN only to represent, you can
+                    # modify it back to previous way after you are able to get
+                    # correct tickers.
+                    db.commit()
 
             except Exception as e:
                 print(e)
