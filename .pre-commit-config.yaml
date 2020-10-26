@@ -1,4 +1,8 @@
 repos:
+  - repo: https://gitlab.com/pycqa/flake8
+    rev: 3.8.4
+    hooks:
+      - id: flake8
   - repo: https://github.com/psf/black
     rev: 20.8b1 # Replace by any tag/version: https://github.com/psf/black/tags
     hooks:
