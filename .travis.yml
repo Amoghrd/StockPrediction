@@ -10,6 +10,7 @@ matrix:
         - pytest
         - flake8
         - black --check --diff .
+        - pylint --exit-zero .
     - language: node_js
       node_js: node
       install:
