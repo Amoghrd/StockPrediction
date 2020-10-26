@@ -8,3 +8,5 @@ numpy==1.19.1
 get_all_tickers==1.7
 pytest==6.0.2
 scikit_learn==0.23.2
+mysql-connector==2.2.9
+mysql-connector-python==8.0.22
