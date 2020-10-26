@@ -17,11 +17,13 @@ from flaskr.fetch_data import regression
 
 from flask_table import Table, Col
 
+
 # Declare your table
 class ItemTable(Table):
-    name = Col('Name')
-    ticker = Col('Ticker')
-    slope = Col('Slope')
+    name = Col("Name")
+    ticker = Col("Ticker")
+    slope = Col("Slope")
+
 
 # Get some objects
 class Item(object):
@@ -149,11 +151,11 @@ def get_post():
 def populateTable():
     topTen1 = []
     topTen2 = []
-    with open('flaskr/GrowthRates.csv') as f:
+    with open("flaskr/GrowthRates.csv") as f:
         reader = csv.reader(f)
         i = 10
         for row in reader:
-            if i==0:
+            if i == 0:
                 break
             topTen1.append(Item(row[1], row[0], row[2]))
             topTen2.append([row[1], row[0], row[2]])

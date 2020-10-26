@@ -1,7 +1,12 @@
 {% extends 'base.html' %} {% block header %}
 <h1>{% block title %}Stocks{% endblock %}</h1>
 {% if g.user %}
-<a class="action btn btn-dark" href="{{ url_for('stock.choose') }}"  type="button">Add Stock</a>
+<a
+  class="action btn btn-dark"
+  href="{{ url_for('stock.choose') }}"
+  type="button"
+  >Add Stock</a
+>
 {% endif %} {% endblock %} {% block content %} {% for post in posts %}
 <article class="post">
   <header>
