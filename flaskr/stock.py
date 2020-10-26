@@ -15,6 +15,22 @@ from datetime import date
 from flaskr.fetch_data import get_stock
 from flaskr.fetch_data import regression
 
+from flask_table import Table, Col
+
+# Declare your table
+class ItemTable(Table):
+    name = Col('Name')
+    ticker = Col('Ticker')
+    slope = Col('Slope')
+
+# Get some objects
+class Item(object):
+    def __init__(self, name, ticker, slope):
+        self.name = name
+        self.ticker = ticker
+        self.slope = slope
+
+
 contains = set()
 
 bp = Blueprint("stock", __name__)
@@ -64,7 +80,7 @@ def index():
         )
     print(info_stocks)
     # info_stocks = [['AMZN', 'AMZN-DD-MM-YY.png']]
-    return render_template("stock/index.html", posts=info_stocks)
+    return render_template("stock/index.html", posts=info_stocks, table=populateTable())
 
 
 @bp.route("/choose", methods=("POST", "GET"))
@@ -128,3 +144,23 @@ def get_post():
     except Exception as e:
         print(e)
     return post
+
+
+def populateTable():
+    topTen1 = []
+    topTen2 = []
+    with open('flaskr/GrowthRates.csv') as f:
+        reader = csv.reader(f)
+        i = 10
+        for row in reader:
+            if i==0:
+                break
+            topTen1.append(Item(row[1], row[0], row[2]))
+            topTen2.append([row[1], row[0], row[2]])
+            i -= 1
+
+    # Populate the table
+    table = ItemTable(topTen1)
+    table = topTen2
+
+    return table
