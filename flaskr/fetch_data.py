@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import datetime
 import math
 import numpy as np
+from datetime import date
 from sklearn.model_selection import train_test_split
 from sklearn import preprocessing, svm
 from sklearn.linear_model import LinearRegression
@@ -26,8 +27,7 @@ def regression(df,name,date):
     # which column to forecast
 
     df.fillna(value=-99999, inplace=True)
-
-    forecast_out = int(math.ceil(0.01 * len(df)))
+    forecast_out = int(math.ceil(0.1 * len(df)))
     # what percent of days from total number of days to forecast
     df['label'] = df[forecast_col].shift(-forecast_out)
 
@@ -63,12 +63,39 @@ def regression(df,name,date):
         next_unix += 86400
         df.loc[next_date] = [np.nan for _ in range(len(df.columns)-1)]+[i]
 
+    optimistic = df['Forecast']*1.05
+    pessimistic = df['Forecast']*0.95
+    indexvalues = df.index
+    covidflag = -1
+    s = "01/03/2020"
+    covidtime = datetime.datetime.strptime(s,"%d/%m/%Y") 
+    covidtimestamp = datetime.datetime.timestamp(covidtime) 
+    for i in range(len(indexvalues)):
+        if indexvalues[i] >= covidtime:
+            covidflag = i
+            break
+
+    for i in range(len(df)):
+        if not np.isnan(optimistic[i]):
+            df['Close'][i] = df['Forecast'][i]
+            optimistic[i] = df['Forecast'][i]
+            pessimistic[i] = df['Forecast'][i]
+            break
     # plotting data with the original and the predicted
     plt.style.use('dark_background')
     plt.figure(figsize=(8, 4))
-    plt.plot(df['Close'])
-    plt.plot(df['Forecast'])
-    plt.legend(loc=4)
+    if covidflag == -1:
+        plt.plot(df['Close'], color = 'lime',label = 'Actual')
+    else:
+        plt.plot(df['Close'][:covidflag], color = 'lime',label = 'Before Covid')
+        if covidflag== 0: 
+            plt.plot(df['Close'][covidflag:], color = 'yellow',label = 'After Covid')
+        else:
+            plt.plot(df['Close'][covidflag-1:], color = 'yellow',label = 'After Covid')
+    plt.fill_between(optimistic.index, optimistic,pessimistic, color ='lightgrey',label = '95% confidence interval')
+    plt.plot(df['Forecast'], color = 'red',label = 'Forecast')
+    plt.legend(loc=0)
     plt.xlabel('Date')
     plt.ylabel('Price')
+    #plt.show()
     plt.savefig(fname='flaskr/static/'+name+'-'+date+'.png',format='png')
