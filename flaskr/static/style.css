@@ -1,14 +1,16 @@
 html {
   font-family: sans-serif;
-  background: #080808;
+  background: whitesmoke;
   padding: 1rem;
+  border-radius: 0.8px;
 }
 
 body {
   max-width: 960px;
   margin: 0 auto;
-  background: black;
+  background: black !important;
   color: white;
+  border-radius: 0.8px;
 }
 
 h1,
@@ -18,7 +20,7 @@ h4,
 h5,
 h6 {
   font-family: serif;
-  color: green;
+  color: rgb(6, 178, 235);
   margin: 1rem 0;
 }
 
