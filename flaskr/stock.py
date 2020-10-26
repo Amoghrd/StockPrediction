@@ -38,14 +38,14 @@ def index():
             for row in reader:
                 try:
                     cursor.execute("INSERT INTO stock (stock_name,stock_id) VALUES(%s,%s)",(row[1], row[0]) )
-                    cursor.commit()
+                    db.commit()
                 except Exception as e:
                     print(e)
     posts = get_post()
     info_stocks = []
     for item in posts:
         print('xxxx'+item[0])
-        df = get_stock(item[0],125)
+        df = get_stock(item[0],250)
         # calling linear regression functiom
         regression(df, item[0], date.today().strftime('%d-%m-%Y'))
         info_stocks.append([item[0],item[0]+'-'+date.today().strftime('%d-%m-%Y')+'.png'])
