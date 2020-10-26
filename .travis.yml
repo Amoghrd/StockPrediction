@@ -9,7 +9,7 @@ matrix:
       script:
         - pytest
         - flake8
-        - black --check --diff
+        - black --check --diff .
     - language: node_js
       node_js: node
       install:
