@@ -6,6 +6,8 @@
 
 [![DOI](https://zenodo.org/badge/301582156.svg)](https://zenodo.org/badge/latestdoi/301582156)
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 ## Video
 
 Below is the video which describes our project's idea
@@ -21,6 +23,7 @@ Below is the video which describes our project's idea
 - You can scale the project to use different predictive models to compare the efficiencies as well as compare different stocks to make the right decision to invest.
 
 ## Technologies and Tools
+
 <b>Language</b>: Python 3, HTML, CSS
 
 <b>Libraries</b>: Flask, click, yfinance, matplotlib, Werkzeug, pandas, numpy, get_all_tickers, pytest, scikit_learn.
@@ -40,13 +43,16 @@ Below is the video which describes our project's idea
 <b>Version Control</b>: git
 
 # Installation Guide
+
 ## Using Docker
+
 1. navigate to the project directory with the Dockerfile
 2. docker build -t csc510/p1:latest .
 3. docker run -p 5000:5000 csc510/p1:latest
 4. open browser and enter http://localhost:5000/auth/login
 
-## For Mac/Ubuntu  
+## For Mac/Ubuntu
+
 Install Flask using pip - pip/pip3 install flask
 
 cd to project directory
@@ -56,6 +62,7 @@ export FLASK_APP=flaskr
 flask init-db
 
 ## For Windows
+
 Install Flask using pip - pip/pip3 install flask
 
 cd to project directory
@@ -64,13 +71,16 @@ set FLASK_APP=flaskr
 
 flask init-db
 
-## Run  
+## Run
+
 To run just do the following
 
 flask run
 
 # Application Overview
+
 <img src="/doc/ApplicationStructure.png" />
 
 # Database Schema
+
 <img src="/doc/Schema.png" />

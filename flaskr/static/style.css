@@ -8,7 +8,7 @@ body {
   max-width: 960px;
   margin: 0 auto;
   background: black;
-  color:white;
+  color: white;
 }
 
 h1,
@@ -132,18 +132,18 @@ header .action {
   min-height: 12em;
   resize: vertical;
 }
-.content input{
+.content input {
   border-radius: 15px;
   background: #1a1917;
   min-height: 2em;
   color: white;
-  border : none;
+  border: none;
 }
 input.danger {
   color: #cc2f2e;
 }
 
-input[type='submit'] {
+input[type="submit"] {
   align-self: start;
   min-width: 10em;
 }

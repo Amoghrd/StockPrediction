@@ -1,7 +1,18 @@
---- 
-install:
-- pip install -r requirements.txt
-- pip install -e .
-language: python
-python: "3.6"
-script: pytest
+---
+matrix:
+  include:
+    - language: python
+      python: "3.6"
+      install:
+        - pip install -r requirements.txt
+        - pip install -e .
+      script:
+        - pytest
+        - flake8
+        - black --check --diff .
+    - language: node_js
+      node_js: node
+      install:
+        - npm install prettier
+      script:
+        - prettier --check .

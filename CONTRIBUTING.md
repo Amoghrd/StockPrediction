@@ -17,3 +17,23 @@ Make sure your code linters.
 Issue that pull request.
 
 Give proper credit to the contributors!
+
+## Technical
+
+Ensure you have installed python3, pip3, and virtualenv.
+
+Then, to set up your development environment:
+
+```
+$ cd projDir
+$ virtualenv venv
+$ source venv/bin/activate
+$ pip3 install -r requirements.txt
+$ pre-commit install
+```
+
+Then, before submitting a PR or pushing changes to master:
+
+```
+$ pre-commit run --all-files
+```
