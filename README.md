@@ -6,6 +6,8 @@
 
 [![DOI](https://zenodo.org/badge/301582156.svg)](https://zenodo.org/badge/latestdoi/301582156)
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 ## Video
 
 Below is the video which describes our project's idea
