@@ -40,58 +40,42 @@ Below is the video which describes our project's idea
 
 <b>Language</b>: Python 3, HTML, CSS
 
-<b>Libraries</b>: Flask, click, yfinance, matplotlib, Werkzeug, pandas, numpy, get_all_tickers, pytest, scikit_learn.
+<b>Web Application Framework</b>: [Docker](https://www.docker.com/), [Flask](https://github.com/pallets/flask/)
 
-<b>Web Application Framework</b>: Docker, Flask
+<b>Test Framework</b>: [pytest](https://github.com/pytest-dev/pytest)
 
-<b>Test Framework</b>: pytest
+<b>Database</b>: [MySQL](https://www.mysql.com/)
 
-<b>Database</b>: SQLite
+<b>Tools</b>: [Visual Studio Code](https://code.visualstudio.com/)
 
-<b>Tools</b>: Visual Studio Code
+<b>Syntax Checker & Style Checker</b>: [flake8](https://gitlab.com/pycqa/flake8), [pylint](https://github.com/PyCQA/pylint/)
 
-<b>Syntax Checker & Sytle Checker</b>: pylint (VSCode Python v2020.8.109390 Extension)
-
-<b>Code Formatter</b>: autopep8 (VSCode Python-autopep8 v1.0.2)
+<b>Code Formatter</b>: [black](https://github.com/psf/black), [prettier](https://github.com/prettier/prettier)
 
 <b>Version Control</b>: git
 
 # Installation Guide
 
-## Running the application using Docker(Recommended for testers)
+## Running the application using Docker (Recommended for testers)
 
-1. Navigate to the project directory with the Dockerfile
-2. Docker build -t csc510/p1:latest .
-3. Docker run -p 5000:5000 csc510/p1:latest
-4. The app should be running on http://localhost:5000/auth/login
+```
+$ cd projDir
+$ docker build -t csc510/p2:latest .
+$ docker run -p 5000:5000 csc510/p2:latest
+```
 
-# Running the application using Flask(for developers)
+You can now find the app at http://localhost:5000/auth/login.
 
-## For Mac/Ubuntu
+## Running the application using Flask (for development)
 
-Install Flask using pip - pip/pip3 install flask
+Insure that you have flask installed, then initialize the default flask db and run the app.
 
-cd to project directory
-
-export FLASK_APP=flaskr
-
-flask init-db
-
-## For Windows
-
-Install Flask using pip - pip/pip3 install flask
-
-cd to project directory
-
-set FLASK_APP=flaskr
-
-flask init-db
-
-## Run
-
-To run just do the following
-
-flask run
+```
+$ cd projDir
+$ set FLASK_APP=flaskr
+$ flask init-db
+$ flask run
+```
 
 # Application Overview
 
