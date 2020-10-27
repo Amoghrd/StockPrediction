@@ -14,7 +14,7 @@
 
 Below is the video which describes our project's idea
 
-[![Stock Market Predictions using Machine Learning](https://github.com/lokesh45/StockPrediction/blob/master/Video.png)](https://www.youtube.com/watch?v=Tr1WOP6sNSQ)
+[![Stock Market Predictions using Machine Learning](https://github.com/lokesh45/StockPrediction/blob/master/Video.png)](https://youtu.be/7ZUhyTCfLUM)
 
 ## Why choose this project:
 
@@ -46,13 +46,14 @@ Below is the video which describes our project's idea
 
 # Installation Guide
 
-## Using Docker
+## Running the application using Docker(Recommended for testers)
 
-1. navigate to the project directory with the Dockerfile
-2. docker build -t csc510/p1:latest .
-3. docker run -p 5000:5000 csc510/p1:latest
-4. open browser and enter http://localhost:5000/auth/login
+1. Navigate to the project directory with the Dockerfile
+2. Docker build -t csc510/p1:latest .
+3. Docker run -p 5000:5000 csc510/p1:latest
+4. The app should be running on http://localhost:5000/auth/login
 
+# Running the application using Flask(for developers)
 ## For Mac/Ubuntu
 
 Install Flask using pip - pip/pip3 install flask
