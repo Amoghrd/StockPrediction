@@ -16,13 +16,6 @@ Below is the video which describes our project's idea
 
 [![Stock Market Predictions using Machine Learning](https://github.com/lokesh45/StockPrediction/blob/master/Video.png)](https://youtu.be/7ZUhyTCfLUM)
 
-## Why choose this project:
-
-- The project provides visualisation of stocks of 2000+ company markets and helps in making prediction for the next time period.
-- Modular architecture
-- Scalable design
-- You will be able to explore data analysis, predictive modelling and explore the integration of NLP functionality.
-- You can scale the project to use different predictive models to compare the efficiencies as well as compare different stocks to make the right decision to invest.
 
 ## Technologies and Tools
 
