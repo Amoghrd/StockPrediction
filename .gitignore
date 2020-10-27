@@ -15,3 +15,6 @@ build/
 env/
 .DS_Store
 flaskr.egg-info/
+
+*.css linguist-detectable=false
+*.html linguist-detectable=false
