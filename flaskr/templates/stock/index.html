@@ -2,10 +2,9 @@
 <h1>{% block title %}Stocks{% endblock %}</h1>
 {% if g.user %}
 <a
-  class="action"
-  href="{{ url_for('stock.choose') }}"
+  class="action btn btn-dark"
   type="button"
-  class="btn btn-dark"
+  href="{{ url_for('stock.choose') }}"
   >Add Stock</a
 >
 {% endif %} {% endblock %} {% block content %}
@@ -26,14 +25,16 @@
     {% endfor %}
   </tbody>
 </table>
+<br />
+<hr />
 
 {% for post in posts %}
 <article>
   <header>
     <div>
-      <b><h1>{{ post['stock_name'] }}</h1></b>
-      <div class="">
-        <b>{{post[0]}}<br />The Graph for {{post[0]}}</b><br />
+      <b><h1 class="stocknamesheader">{{ post['stock_name'] }}</h1></b>
+      <div class="stocknamesheader">
+        <b>{{post[0]}}<br /><h5 class= "stocknamesheader">The Graph for {{post[0]}}</h5></b>
       </div>
       <img src="../static/{{post[1]}}" />
     </div>
