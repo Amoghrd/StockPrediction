@@ -21,6 +21,9 @@ def app():
         init_db()
         db = get_db()
         cursor = db.cursor()
+        delete_test_sql = "DELETE FROM user where username = %s"
+        user = ("test",)
+        cursor.execute(delete_test_sql, user)
         with open(os.path.join(os.path.dirname(__file__), "data.sql"), "rb") as f:
             cursor.execute(f.read().decode("utf-8"), multi=True)
 

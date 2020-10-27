@@ -2,8 +2,8 @@
 <h1>{% block title %}Choose Stock{% endblock %}</h1>
 {% endblock %} {% block content %}
 <form method="post">
-  <label for="date">Date:</label>
-  <input type="date" id="date" name="date" />
+  <!--<label for="date">Date:</label>
+  <input type="date" id="date" name="date" />-->
   <label for="stock_name">Stocks</label>
   <select name="stock_name" id="stock_name">
     <option id="Apple Inc.">Apple Inc.</option>
@@ -3168,6 +3168,7 @@
       Wireless Telecom Group Inc.
     </option>
   </select>
+  <br />
   <input type="submit" value="Select" />
 </form>
 {% endblock %}

@@ -1,13 +1,41 @@
 {% extends 'base.html' %} {% block header %}
 <h1>{% block title %}Stocks{% endblock %}</h1>
 {% if g.user %}
-<a class="action" href="{{ url_for('stock.choose') }}">New</a>
-{% endif %} {% endblock %} {% block content %} {% for post in posts %}
-<article class="post">
+<a
+  class="action btn btn-dark"
+  type="button"
+  href="{{ url_for('stock.choose') }}"
+  >Add Stock</a
+>
+{% endif %} {% endblock %} {% block content %}
+<h1>Top 10 Stocks based on growth rate(Last 30 days)</h1>
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>Stock</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for row in table %}
+    <tr>
+      <td>{{row[0]}}</td>
+      <td>{{row[1]}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br />
+<hr />
+
+{% for post in posts %}
+<article>
   <header>
     <div>
-      <h1>{{ post['stock_name'] }}</h1>
-      <div class="about">{{post[0]}}<br />The Graph for {{post[0]}}<br /></div>
+      <b><h1 class="stocknamesheader">{{ post['stock_name'] }}</h1></b>
+      <div class="stocknamesheader">
+        <b>{{post[0]}}<br /><h5 class= "stocknamesheader">The Graph for {{post[0]}}</h5></b>
+      </div>
       <img src="../static/{{post[1]}}" />
     </div>
   </header>

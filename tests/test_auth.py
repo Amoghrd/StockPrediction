@@ -9,13 +9,6 @@ from flask import session
         ("test", "a", b"Incorrect password."),
     ),
 )
-@pytest.mark.parametrize(
-    ("username", "password", "message"),
-    (
-        ("a", "test", b"Incorrect username."),
-        ("test", "a", b"Incorrect password."),
-    ),
-)
 def test_logout(client, auth, username, password, message):
     auth.login(username, password)
 
