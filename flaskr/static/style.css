@@ -1,14 +1,14 @@
 html {
   font-family: sans-serif;
-  background: whitesmoke;
+  background: black;
   padding: 1rem;
   border-radius: 0.8px;
 }
 
 body {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
-  background: black !important;
+  background: white !important;
   color: white;
   border-radius: 0.8px;
 }
@@ -85,6 +85,16 @@ header .action {
   background: #cae6f6;
   border: 1px solid #377ba8;
 }
+.stockheader {
+  font-family: serif;
+  color: lightgrey;
+  margin: 1rem 0;
+}
+
+.stocknamesheader {
+  color: rgb(43, 38, 38);
+  margin: 1rem 0;
+}
 
 .post > header {
   display: flex;
@@ -102,7 +112,7 @@ header .action {
 }
 
 .post .about {
-  color: slategray;
+  color: lightgreen;
   font-style: italic;
 }
 
@@ -149,7 +159,7 @@ input[type="submit"] {
   align-self: start;
   min-width: 10em;
 }
-
+/*
 table {
   border-collapse: collapse;
 }
@@ -171,6 +181,5 @@ td {
   border-bottom: 1px solid #ddd;
 }
 
-tr:hover {
-  background-color: #054903;
-}
+tr:hover {background-color: #054903;}
+*/

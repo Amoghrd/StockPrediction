@@ -67,7 +67,7 @@ def regression(df, name, date):
     pessimistic = df["Forecast"] * 0.95
     indexvalues = df.index
     covidflag = -1
-    s = "22/02/2020"
+    s = "24/02/2020"
     covidtime = datetime.datetime.strptime(s, "%d/%m/%Y")
     for i in range(len(indexvalues)):
         if indexvalues[i] >= covidtime:

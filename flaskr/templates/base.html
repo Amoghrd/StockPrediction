@@ -8,7 +8,7 @@
 />
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
 <nav>
-  <h1>Stock Guide and Analyst</h1>
+  <h1 class="stockheader">Stock Guide and Analyst</h1>
   <ul>
     {% if g.user %}
     <li><span>{{ g.user['username'] }}</span></li>
@@ -17,6 +17,14 @@
         >Log Out</a
       >
       {% else %}
+    </li>
+    <li>
+      <a
+        href="{{ url_for('auth.register') }}"
+        type="button"
+        class="btn btn-dark"
+        >Register</a
+      >
     </li>
     &nbsp;
     <li>
