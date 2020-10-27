@@ -95,7 +95,7 @@ flask run
 
 # Application Overview
 
-<img src="/doc/ApplicationStructure.png" />
+<img src="/doc/ApplicationStructure1.png" />
 
 # Database Schema
 
