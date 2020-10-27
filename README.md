@@ -23,7 +23,7 @@ Below is the video which describes our project's idea
 
 <b>Libraries</b>: Flask, click, yfinance, matplotlib, Werkzeug, pandas, numpy, get_all_tickers, pytest, scikit_learn.
 
-<b>Web Application Framework</b>: Flask
+<b>Web Application Framework</b>: Docker, Flask
 
 <b>Test Framework</b>: pytest
 
