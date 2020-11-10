@@ -11,7 +11,7 @@ def init_app(app):
 
 def get_db():
     connection = mysql.connector.connect(
-        host="sefall2021.cosnmrdyk6wi.us-east-2.rds.amazonaws.com",
+        host="seng2021.csbfa4eylzxn.us-east-2.rds.amazonaws.com",
         database="StockPrediction",
         user="root",
         password="SEFall2021",
