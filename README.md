@@ -18,7 +18,7 @@ Below is the video which describes our project's idea
 
 ## Test Plan
 
-1. Go to [TestPlan](https://docs.google.com/spreadsheets/d/1rQDUvgM1uNTLeklLOQzoprsNrLaTmgU-nL8uw30S_xw/edit#gid=632817659) spreadsheet.
+1. Go to [TestPlan](https://docs.google.com/spreadsheets/d/1MvyO-LSAp5Bg_7S5XKp2_Uj3fi8aDOYykU1gNPzXJWs/edit#gid=632817659) spreadsheet.
 2. Assign keys to each user.
 3. Record the data generated from the participant. Each participant will perform following activities.
    1. Analyse the project based on Ease of use, Accuracy, Cost, Range of choice.
